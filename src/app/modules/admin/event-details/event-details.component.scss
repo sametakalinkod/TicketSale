@@ -1,0 +1,41 @@
+.eventItem .event-item__label {
+    background: url(../../../../assets/tag/big-label.png) 0 0 no-repeat;
+    display: block;
+    width: 118px;
+    height: 134px;
+    color: #fff;
+    position: absolute;
+    z-index: 3;
+    right: 20px;
+    top: -15px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 33px;
+    font-weight: 700;
+    padding: 18px 0 0 0;
+    background-size: cover;
+}
+
+.eventList .eventItem {
+    min-height: 156px !important;
+}
+
+.price-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container {
+    position: relative;
+}
+
+
+.sold-out-tag {
+    position: absolute;
+    // top: 0;
+    // left: 0;
+    // width: 100%;
+    // display: flex;
+}

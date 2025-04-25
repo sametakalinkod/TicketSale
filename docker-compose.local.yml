@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  veboniticketsale:
+    image: veboniticketsale
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    deploy:
+      resources:
+        limits:
+          cpus: '2.000'
+          memory: 2048M
+        reservations:
+          memory: 1024M

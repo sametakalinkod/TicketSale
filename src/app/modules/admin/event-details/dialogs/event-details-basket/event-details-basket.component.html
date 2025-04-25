@@ -1,0 +1,181 @@
+<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header border-bottom-0">
+      <h5 class="modal-title-activity" id="exampleModalLabel">
+        Activity Summary
+      </h5>
+    </div>
+    <div class="modal-body session-modal">
+      <table class="table table-image">
+        <div class="m-basket__contentPanel">
+          <div class="m-basket__figure"><a class="m-basket__figureLink">
+              <img [src]="selectedProductData.imageList[0] ?? 'fallback-image-url'" width="164" height="227"
+                class="m-basket__figureImg -lazyImage"></a></div>
+          <div class="m-basket__optionContent">
+            <div class="m-basket__optionHeader activity-detail-title"><a class="m-basket__productInfo--link"><strong
+                  class="m-basket__productInfoCategory">{{ selectedProductData && selectedProductData.sessions &&
+                  selectedProductData.sessions.length > 0 ? selectedProductData.sessions[0].remark : '' }}
+                </strong>
+                <span class="m-basket__productInfoName">{{ (selectedProductData && selectedProductData.sessions &&
+                  selectedProductData.sessions.length > 0 ? selectedProductData.sessions[0].date :'')
+                  | date:'EEEE,
+                  MMM dd, yyyy' }}
+                  <!-- {{ selectedProductData && selectedProductData.sessions && selectedProductData.sessions[0]?.seanceBegin
+                  }} -->
+                </span></a> </div>
+            <div class="m-basket__productTools">
+              <div class="m-basket__productInfo">
+                <!-- <div class="m-basket__productPrice">
+                  <div class="m-productPrice">
+                    <div class="m-productPrice__discount"><span class="m-productPrice__discountValue">-%10</span></div>
+                    <div class="m-productPrice__content"><span class="m-productPrice__oldPrice">{{
+                        ((+selectedProductData?.sessions[0].adultCount * +selectedProductData?.sessions[0].ticketPrice)
+                        +
+                        (+selectedProductData?.sessions[0].adultCount * +selectedProductData?.sessions[0].ticketPrice /
+                        10))
+                        | currency:'':'':'1.2-2' }} TL
+                      </span> <span class="m-productPrice__salePrice">{{ (+selectedProductData?.sessions[0].adultCount *
+                        +selectedProductData?.sessions[0].ticketPrice)
+                        | currency:'':'':'1.2-2' }} TL</span></div>
+                  </div>
+
+                </div> -->
+                <div class="activity-detail-features">
+                  <div class="activity-detail-quantity">
+                    <div class="m-basket__variantionName -mobileHide">
+                      Yetişkin:
+                    </div>
+                    <div class="m-select -small activity-detail-select"><select #quantitySelect
+                        id="quantitySelect0-key-0" value="1" [(ngModel)]="adultCount" class="a-selectControl -small">
+                        <option selected *ngFor="let quantity of quantityOptions" [value]="quantity">{{
+                          quantity }}
+                          adet</option>
+
+                      </select></div>
+                  </div>
+                  <div class="m-basket__quantity" style="margin-left:10px" *ngIf="false">
+                    <div class="m-basket__variantionName -mobileHide">
+                      Çocuk:
+                    </div>
+                    <div class="m-select -small"><select #quantitySelect value="1" [(ngModel)]="childCount"
+                        class="a-selectControl -small">
+                        <option selected *ngFor="let quantity of quantityOptions" [value]="+quantity">{{
+                          quantity }}
+                          adet</option>
+
+                      </select></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="activity-basket">
+          <!-- <div class="row">
+            <div class="col-6">
+              <mat-form-field class="flex-auto form-outline">
+                <mat-label>Selec</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+              <mat-form-field class="flex-auto form-outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </div>
+          </div> -->
+        </div>
+
+      </table>
+      <div class="row">
+        <div class="col custom-exstra">
+          <div class="span">
+            Ekstra Servisler
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="btn-group square-border" role="group" style=" transform: scale(0.7);">
+            <button id="extra-add" mat-icon-button type="button" class="btn-secondary " (click)="addExtraService()">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Count</th>
+              <th>Price</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of extraServiceModelDtoArray">
+              <!-- <td>{{ getServiceName(item.serviceId) }}</td> -->
+              <td>{{ item.serviceId }}</td>
+              <td>{{ item.count }}</td>
+              <td>{{ getPriceName(item) }}</td>
+              <td>
+                <button mat-icon-button (click)="removeRecord(item)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="row" *ngFor="let service of extraServices " style="padding-top: 10px;">
+        <div class="col">
+          <mat-form-field class="extra-service-material">
+            <mat-label>Select Service</mat-label>
+            <mat-select [(ngModel)]="service.serviceId">
+              <mat-option *ngFor="let option of selectedProductData?.extraProgram" [value]="option.name">{{
+                option.name }}</mat-option>
+
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="extra-service-material">
+            <!-- <mat-label>Select Option 2</mat-label> -->
+            <input style="padding-left: 83px" id="extraservice-increment" matInput type="number" min="1"
+              [(ngModel)]="service.count">
+            <button mat-button class="minus-btn" (click)="decrementValue(service)">-</button>
+            <button mat-button class="plus-btn" (click)="incrementValue(service)">+</button>
+          </mat-form-field>
+        </div>
+
+        <div class="col-auto">
+          <button style="height: 71%;" mat-raised-button color="primary" (click)="approveService(service)">Ekle</button>
+        </div>
+      </div>
+
+
+      <!-- <div class="row" *ngIf="selectExtraServices">
+        <div class="col">
+          <select [(ngModel)]="service.selectBox1Value">
+           </select>
+        </div>
+        <div class="col">
+          <select [(ngModel)]="service.selectBox2Value">
+           </select>
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn btn-primary" (click)="approveService(service)">Approve</button>
+        </div>
+      </div> -->
+      <div class="d-flex justify-content-end">
+        <h5 class="total-text">Total: <span class="price text-success">{{getTotalPrice()}}</span></h5>
+      </div>
+    </div>
+    <div class="modal-footer border-top-0 d-flex justify-content-between">
+      <button type="button" class="btn btn-secondary custom-btn" data-dismiss="modal"
+        (click)="closeDialog()">Close</button>
+      <button type="button" class="btn btn-success custom-btn mr-left-1" (click)="addBasket()">Add To Basket</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,326 @@
+<div class="main" id="tt-pageContent">
+
+
+
+
+  <input type="hidden" id="typeid" value="8">
+  <input type="hidden" name="seanceID" id="seanceID" value="664">
+
+
+  <div class="subpages-inner section-marker">
+    <div class="container-fluid-subpages etkinlikdetay">
+
+      <!-- <app-event-main-res-request></app-event-main-res-request> -->
+      <app-event-main-res-payment [selectedEventId]="selectedRecId" [html]="htmlEditorValue"
+        [selectedProductData]="selectedProductSessions" [extraServices]="selectedProductSessions?.extraProgram ?? []"
+        [image]="image"></app-event-main-res-payment>
+      <div class="eventList zoneListe">
+        <div class="event-item eventItem" *ngFor="let item of selectablePackes"
+          style="    justify-content: space-between;">
+
+          <div class="event-item__label zoneNameLittle">
+            <label>{{item.detailRemarkDisplay}}</label>
+          </div>
+
+          <div class="eventContent">
+            <div class="title">{{item.detailRemarkDisplay}}</div>
+            <div class="main" [innerHtml]="item.currentHtml"></div>
+
+            <p></p>
+          </div>
+          <div class="row eventPriceContent" style="min-width:130px"
+            *ngIf="(item.currUnitPrice === null || item.currUnitPrice === 0) && !item.isActive">
+            <div class="eventPriceInnerContainer">
+            <div class="col" *ngIf="item.currAdultPrice !== 0">
+              <div class="capacityLbl">{{'adult' | transloco}}</div>
+              <div> {{item.currAdultPrice | currency: '₺'}}</div>
+            </div>
+            <div class="col" *ngIf="item.currChildPrice !== null && item.currChildPrice !== 0">
+              <div class="capacityLbl">{{'child' | transloco}}</div>
+              <div> {{item.currChildPrice | currency: '₺'}} </div>
+            </div>
+          </div>
+          </div>
+          <div class="row eventPriceContent" style="min-width:130px"
+            *ngIf="(item.currUnitPrice !== null && item.currUnitPrice !== 0)  && !item.isActive">
+            <div class="col">
+              <div class="capacityLbl">{{'unit' | transloco}}</div>
+              <div> {{item.currUnitPrice | currency: '₺'}}</div>
+              <span class="max-pax-det">( {{'maxpax' | transloco}} {{item.maxPax }})</span>
+            </div>
+          </div>
+          <div *ngIf="!closeSaleCheck" class="eventRight  col-xs-12" style="display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 1em;">
+            <div class="price-section">
+              <div class="cosmos-btn">
+              <button id="addBasketDetailButton" type="button" (click)="addBasketPackages(item)"
+                class="cosmos-btn-details addBasketDetailButton"><span>{{item.isActive ?'petitroutebutton' : 'addbasket'|
+                  transloco}}</span></button>
+                </div>
+              <img *ngIf="item.remainder <= 0" src="./assets/tag/sold-out.png" alt="Sold Out" class="sold-out-tag">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <app-event-main-res-exstras *ngIf="!closeSaleCheck"
+        [exstraServices]="selectedProductSessions?.extraProgram ?? []"></app-event-main-res-exstras> -->
+      <!-- <div class="mt-30" id="salonPlanBtn">
+        <h4 class="title text-center">CLICK HERE FOR SEATING PLAN</h4>
+      </div>
+      <div id="salonPlan" style="display: block;">
+        <a href="#" data-toggle="modal" data-target="#modalSalon"><img
+            src="https://panel.cosmosticket.net//upload/salon/2024121328437.jpg" class="salonImg"
+            style="width: 100%;"></a>
+      </div> -->
+      <!-- 
+      <div class="eventList zoneListe">
+        <div class="event-item eventItem" data-blokid="167">
+
+          <div class="event-item__label zoneNameLittle">
+            <label>ÇOCUK MENÜSÜ (6-12 YAŞ)</label>
+          </div>
+
+          <div class="eventContent">
+            <div class="title">JUNIOR MENU (AGE 6-12)</div>
+            <p></p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Caprese Salad</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Buffalo Mozzarella | Rocket | Radish | Datterino Tomatoes | Basil Oil
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Tomato Soup</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Served with Brioche
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Potato Gnocchi</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Served with Truffles and Parmesan sauce
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Grilled Chicken
+                Breast&nbsp;</strong><br style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Served with Rosemary Potatoes
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Dark Chocolate Flan</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Served with Vanilla Ice Cream
+            </p>
+            <p></p>
+          </div>
+          <div class="eventPriceContent" style="min-width:130px">
+            <div class="capacityLbl">1 ADULT</div>
+            <div>1,200 ₺</div>
+          </div>
+        </div>
+        <div class="event-item eventItem" data-blokid="164">
+
+          <div class="event-item__label zoneNameLittle">
+            <label>KLASİK MENU</label>
+          </div>
+
+          <div class="eventContent">
+            <div class="title">CLASSIC MENU</div>
+            <p></p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Caprese Salad</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Buffalo Mozzarella |&nbsp;Rocket |&nbsp;Radish | Datterino Tomatoes | Basil Oil
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Traditional Bouillabaisse
+                Soup</strong><br style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Pulpo |&nbsp;Vongole |&nbsp;Mussel |&nbsp;Shellfish Stock |&nbsp;Sauce Rouille
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Confit King Prawn</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Celery |&nbsp;Saffron Hollandaise | Nori |&nbsp;Dashi butter
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Barbeque Roastbeef</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Roasted Wild Broccoli |&nbsp;Vanilla Carrot |&nbsp;Herb Trifle
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Crème Brûlée</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Tonka Bean&nbsp;| Marinated Berries&nbsp;| Coffee Cream Ice Cream
+            </p>
+            <p></p>
+          </div>
+          <div class="eventPriceContent" style="min-width:130px">
+            <div class="capacityLbl">1 ADULT</div>
+            <div>2,000 ₺</div>
+          </div>
+        </div>
+        <div class="event-item eventItem" data-blokid="165">
+
+          <div class="event-item__label zoneNameLittle">
+            <label>VEJETARYEN MENU</label>
+          </div>
+
+          <div class="eventContent">
+            <div class="title">VEGETARIAN MENU</div>
+            <p></p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Burrata Salad</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Tomato Compote&nbsp;| Basil Oil&nbsp;| Rocket&nbsp;| Red and Yellow Datterino Tomatoes | Balsamic Drizzle
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Tomato Soup</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Served with Brioche
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Potato Gnocchi</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Served withTruffles and Parmesan Sauce
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Mille -feuille</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Eggplant | Scamorza Cheese
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Dark Chocolate Flan</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Served with Vanilla Ice Cream
+            </p>
+            <p></p>
+          </div>
+          <div class="eventPriceContent" style="min-width:130px">
+            <div class="capacityLbl">1 ADULT</div>
+            <div>2,000 ₺</div>
+          </div>
+        </div>
+        <div class="event-item eventItem" data-blokid="166">
+
+          <div class="event-item__label zoneNameLittle">
+            <label>LE GRAND MENU</label>
+          </div>
+
+          <div class="eventContent">
+            <div class="title">LE GRAND MENU </div>
+            <p></p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Burrata</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Tomato Compote |&nbsp;Basil Oil |&nbsp;Rocket | Red and Yellow Datterino Tomatoer | Balsamic Drizzle
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Traditional Bouillabaisse
+                Soup</strong><br style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Pulpo&nbsp;| Vongole&nbsp;| Mussel&nbsp;| Shellfish Stock | Sauce Rouille
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <b style="padding: 0px; margin: 0px; box-sizing: border-box;">Butter Lobster Tail</b><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Pearl Barley |&nbsp;Caviar |&nbsp;Beurre Blanc
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Fillet of Beef Tenderloin</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Wild Broccoli |&nbsp;Baby Carrots |&nbsp;Potato Gratin&nbsp;
+            </p>
+            <p
+              style="padding: 15px 0px; margin: 0px; font-family: &quot;source sans pro&quot;, sans-serif; font-size: 20px; box-sizing: border-box; color: rgb(99, 99, 99); line-height: 1.5rem; text-align: -webkit-center;">
+              <strong style="padding: 0px; margin: 0px; box-sizing: border-box;">Crème Brûlée</strong><br
+                style="padding: 0px; margin: 0px; box-sizing: border-box;">
+              Tonka Bean |&nbsp;Marinated Berries |&nbsp;Coffee Cream Ice Cream
+            </p>
+            <p></p>
+          </div>
+          <div class="eventPriceContent" style="min-width:130px">
+            <div class="capacityLbl">1 ADULT</div>
+            <div>2,500 ₺</div>
+          </div>
+        </div>
+      </div> -->
+
+
+
+    </div>
+  </div>
+
+  <script>
+
+    $('#seanceID').val('664');
+    console.log($('#seanceID').val());
+    function biletAl() {
+
+      var alinmis = 0;
+      var user = 0;
+
+      var seanceId = document.getElementById("seanceID").value;
+
+      if (seanceId == 0 || seanceId == undefined) {
+        ShowMessage("Please select a session to buy tickets!", "warning");
+        return false;
+      }
+
+      if (user == 0) {
+        localStorage.setItem('redirect', '/bilet-secim/' + seanceId);
+        //localStorage.setItem('redirect', '/etkinlik/439/');
+        window.location.href = "/giris-yap";
+      }
+
+      // var seanceId = document.getElementById("seanceID").value;
+      window.location.href = "/bilet-secim/" + seanceId + "/";
+
+    }
+    function selectSeance(id) {
+      $('#seanceID').val(id);
+      /*
+      $(".detailseancelist a").each(function (index, domEle) {
+          $('.detailseancelist>a').removeClass("button--empty");
+          $(domEle).addClass("button--gray");
+      });
+      */
+    }
+
+    //seansItem
+    $(document).ready(function () {
+      $(".seansItem").click(function () {
+        $(".seansItem").removeClass("aktif");
+        $(this).addClass("aktif");
+      });
+
+      $("#salonPlanBtn").click(function () {
+        $("#salonPlan").slideToggle();
+      });
+
+      //salonPlanBtn
+    });
+  </script>
+
+
+
+
+
+
+</div>

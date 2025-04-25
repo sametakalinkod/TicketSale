@@ -1,0 +1,12 @@
+<div class="custom-dialog">
+  <h1 mat-dialog-title id="partial-payment-dialog">
+    <button class="dialog-close-button custom-close" (click)="closeDialog()">
+      <span class="material-icons"> highlight_off </span>
+    </button>
+  </h1>
+
+  <div class="modalForm">
+    <iframe #paymentIframe class="partial-payment-iframe" *ngIf="b2bBasketPayment" (load)="onLoad(this)"></iframe>
+
+  </div>
+</div>

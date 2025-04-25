@@ -1,0 +1,297 @@
+<!-- <div class="display">
+
+  <div class="mainvideo">
+    <video autoplay muted loop id="myVideo" [muted]="videoMuted">
+      <source src="https://static.kilithg.com/networks/4/properties/4/multimedia/20230612124128957_org.mp4"
+        type="video/mp4">
+    </video>
+    <span class="mute-status" (click)="handleClick()">
+      <img class="mute-image"
+        [src]="(videoMuted ? '../../../../assets/icons/mute-icon.png' : '../../../../assets/icons/unmute-icon.png')"
+        alt="muted" title="Mute">
+    </span>
+  </div>
+
+  <div id="nav-bar" class="nav-bar fadeIn">
+    <div class="top-bar">
+      <div class="container">
+        <div class="navbar-wrapper">
+          <nav class="navbar left-side is-transparent">
+            <div class="navbar-brand">
+              <a role="button" aria-label="menu" tabindex="0" class="navbar-burger burger">
+                <span aria-hidden="true">
+                </span>
+                <span aria-hidden="true">
+                </span>
+                <span aria-hidden="true">
+                </span>
+              </a>
+            </div>
+            <div class="navbar-menu">
+              <div class="navbar-start">
+                <div class="dropdown dropdown-menu-animation language-dropdown is-mobile-modal">
+                  <div tabindex="0" aria-haspopup="true" class="dropdown-trigger">
+                    <button type="button" class="button is-lang is-primary is-rounded">
+                      <span>tr</span>
+                      <span class="icon is-small">
+                        <i class="mdi mdi-menu-down">
+                        </i>
+                      </span>
+                    </button>
+                  </div>
+                  <div aria-hidden="true" class="background" style="display: none;">
+                  </div>
+                  <div aria-hidden="true" class="dropdown-menu" style="display: none;">
+                    <div role="list" aria-modal="true" class="dropdown-content">
+                      <div role="listitem" class="has-link">
+                        <a href="/ru/" class="dropdown-item">ru
+                        </a>
+                      </div>
+                      <div role="listitem" class="has-link">
+                        <a href="/" class="dropdown-item">
+                          en
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <a href="https://wa.me/905498136000?text=Hello%20Cosmos%20Theatre" target="_blank" class="navbar-item">
+                  <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="whatsapp" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-whatsapp fa-w-14">
+                    <path fill="currentColor"
+                      d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"
+                      class="">
+                    </path>
+                  </svg></a>
+                <a href="https://t.me/+905498136000" target="_blank" class="navbar-item"><svg aria-hidden="true"
+                    focusable="false" data-prefix="fab" data-icon="telegram" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="svg-inline--fa fa-telegram fa-w-16">
+                    <path fill="currentColor"
+                      d="M248 8C111 8 0 119 0 256S111 504 248 504 496 392.1 496 256 384.1 8 248 8zM362.1 176.7c-3.732 39.22-19.88 134.4-28.1 178.3-3.476 18.58-10.32 24.82-16.95 25.42-14.4 1.326-25.34-9.517-39.29-18.66-21.83-14.31-34.16-23.22-55.35-37.18-24.49-16.14-8.612-25 5.342-39.5 3.652-3.793 67.11-61.51 68.33-66.75 .153-.655 .3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283 .746-104.6 69.14-14.85 10.19-26.89 9.934c-8.855-.191-25.89-5.006-38.55-9.123-15.53-5.048-27.88-7.717-26.8-16.29q.84-6.7 18.45-13.7 108.4-47.25 144.6-62.3c68.87-28.65 83.18-33.62 92.51-33.79 2.052-.034 6.639 .474 9.61 2.885a10.45 10.45 0 0 1 3.53 6.716A43.76 43.76 0 0 1 362.1 176.7z"
+                      class=""></path>
+                  </svg></a> <a href="https://goo.gl/maps/mdZWgZFc9FrgrzGs5" target="_blank" class="navbar-item"><svg
+                    aria-hidden="true" focusable="false" data-prefix="fas" data-icon="location-dot" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                    class="svg-inline--fa fa-location-dot fa-w-12">
+                    <path fill="currentColor"
+                      d="M168.3 499.2C116.1 435 0 279.4 0 192C0 85.96 85.96 0 192 0C298 0 384 85.96 384 192C384 279.4 267 435 215.7 499.2C203.4 514.5 180.6 514.5 168.3 499.2H168.3zM192 256C227.3 256 256 227.3 256 192C256 156.7 227.3 128 192 128C156.7 128 128 156.7 128 192C128 227.3 156.7 256 192 256z"
+                      class=""></path>
+                  </svg></a> <a href="mailto:info@cosmostheatre.com" target="_blank" class="navbar-item"><svg
+                    aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-envelope fa-w-16">
+                    <path fill="currentColor"
+                      d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z"
+                      class=""></path>
+                  </svg></a>
+              </div>
+              <div class="navbar-end"></div>
+            </div>
+          </nav>
+          <div class="mx-auto ct-amblem">
+            <a href="/tr" class="ct-amblem-link">
+              <img src="../../../assets/icons/logo-white.png" height="58" width="60" data-v-2ff3ba16=""></a>
+          </div>
+          <div class="right-side is-flex is-justify-content-end" data-v-2ff3ba16=""><a href="tel:+902423402771">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone" role="img"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-phone fa-w-16">
+                <path fill="currentColor"
+                  d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z"
+                  class=""></path>
+              </svg>
+              <span>444 90 30</span></a>
+            <a href="https://book.cosmostheatre.com/" target="_blank" class="btn-book-now"><svg focusable="false"
+                data-prefix="fas" data-icon="calendar-days" role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512" class="svg-inline--fa fa-calendar-days fa-w-14">
+                <path fill="currentColor"
+                  d="M160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32zM0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM64 304C64 312.8 71.16 320 80 320H112C120.8 320 128 312.8 128 304V272C128 263.2 120.8 256 112 256H80C71.16 256 64 263.2 64 272V304zM192 304C192 312.8 199.2 320 208 320H240C248.8 320 256 312.8 256 304V272C256 263.2 248.8 256 240 256H208C199.2 256 192 263.2 192 272V304zM336 256C327.2 256 320 263.2 320 272V304C320 312.8 327.2 320 336 320H368C376.8 320 384 312.8 384 304V272C384 263.2 376.8 256 368 256H336zM64 432C64 440.8 71.16 448 80 448H112C120.8 448 128 440.8 128 432V400C128 391.2 120.8 384 112 384H80C71.16 384 64 391.2 64 400V432zM208 384C199.2 384 192 391.2 192 400V432C192 440.8 199.2 448 208 448H240C248.8 448 256 440.8 256 432V400C256 391.2 248.8 384 240 384H208zM320 432C320 440.8 327.2 448 336 448H368C376.8 448 384 440.8 384 432V400C384 391.2 376.8 384 368 384H336C327.2 384 320 391.2 320 400V432z"
+                  class=""></path>
+              </svg>
+              <span>REZERVASYON</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav role="navigation" class="navbar link-menu has-navbar-centered is-transparent is-primary">
+      <div class="navbar-menu">
+        <div class="navbar-start"><a href="/tr" class="navbar-item">ANASAYFA
+            <div class="seperator-menu">|</div>
+          </a><a href="/tr/mekan" class="navbar-item">MEKAN
+            <div class="seperator-menu">|</div>
+          </a><a href="/tr/andy-show" class="navbar-item" data-v-0a8ca819="">ANDY
+            <div class="seperator-menu" data-v-0a8ca819="">|</div>
+          </a><a href="/tr/etkinlikler-konserler" class="navbar-item" data-v-0a8ca819="">ETKİNLİKLER &amp; KONSERLER
+            <div class="seperator-menu" data-v-0a8ca819="">|</div>
+          </a><a href="/tr/gastronomi" class="navbar-item" data-v-0a8ca819="">GASTRONOMİ
+            <div class="seperator-menu" data-v-0a8ca819="">|</div>
+          </a><a href="/tr/club-cosmos" class="navbar-item" data-v-0a8ca819="">CLUB COSMOS
+            <div class="seperator-menu" data-v-0a8ca819="">|</div>
+          </a><a href="/tr/bize-ulasin" class="navbar-item" data-v-0a8ca819="">BİLGİ
+          </a></div>
+      </div>
+    </nav>
+  </div>
+</div> -->
+
+<div id="tt-header" class="align-items-center">
+  <div class="row">
+    <div class="container">
+      <div class="tt-holder">
+        <div class="tt-col">
+          <div class="leftHeadCol">
+            <a [href]="'tel:' + companyFactSheetDef?.propertyPhone" class="telIcon">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone" role="img"
+                xmlns="https://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-phone fa-w-16">
+                <path fill="currentColor"
+                  d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z"
+                  class=""></path>
+              </svg>
+              <div class="telTxtWrap">
+                <div class="headTel">
+                  {{ "supportline" | transloco }} (09:00-02:00)
+                </div>
+                <span class="tel" *ngIf="!(companyFactSheetDef?.propertyPhone ?? false)">{{'requestcall' |
+                  transloco}}</span>
+                <span class="tel" *ngIf="(companyFactSheetDef?.propertyPhone ?? false)">{{
+                  companyFactSheetDef?.propertyPhone ?? ''}}</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="tt-col tt-col tt-desctop-parent tt-wide">
+          <!-- <a href="/home" class="tt-logo tt-logo-alignment">
+            <img [src]="companyFactSheetDef?.companyLogoUrl ?? '../../../assets/logo/cosmos.png'" />
+          </a> -->
+          <a (click)="navigateToRoute()" class="tt-logo tt-logo-alignment" style="cursor:pointer;">
+            <img [src]="companyFactSheetDef?.companyLogoUrl ?? '../../../assets/logo/cosmos.png'" />
+          </a>
+        </div>
+        <div class="tt-col tt-col-obj headRightCol">
+          <div class="tt-obj tt-obj-languages">
+            <div class="tt-skinSelect-02 tt-select__popup-right tt-obj__select">
+              <div class="SumoSelect" [class.open]="isOptWrapperOpen" tabindex="0" role="button" aria-expanded="true"
+                (click)="toggleOptWrapper()">
+                <select class="tt-select SumoUnder" onchange="changeLanguage()" tabindex="-1">
+                  <option value="/home/ChangeLanguage?lang=tr">TR</option>
+                  <option value="/home/ChangeLanguage?lang=en">EN</option>
+                  <option value="/home/ChangeLanguage?lang=ru">RU</option>
+                </select>
+                <p class="CaptionCont SelectBox" title=" TR">
+                  <span> {{ selectedOption }}</span>
+                </p>
+                <div class="optWrapper" [class.optWrapper--before]="isOptWrapperOpen">
+                  <ul class="options">
+                    <li class="opt selected" (click)="updateSelectedOption('TR')">
+                      <label>TR</label>
+                    </li>
+                    <li class="opt" (click)="updateSelectedOption('EN')">
+                      <label>EN</label>
+                    </li>
+                    <li class="opt" (click)="updateSelectedOption('RU')">
+                      <label>RU</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="tt-obj tt-obj-cart">
+            <a href="/guncel-etkinlikler">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="calendar-days" role="img"
+                xmlns="https://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                class="svg-inline--fa fa-calendar-days fa-w-14">
+                <path fill="currentColor"
+                  d="M160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32zM0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM64 304C64 312.8 71.16 320 80 320H112C120.8 320 128 312.8 128 304V272C128 263.2 120.8 256 112 256H80C71.16 256 64 263.2 64 272V304zM192 304C192 312.8 199.2 320 208 320H240C248.8 320 256 312.8 256 304V272C256 263.2 248.8 256 240 256H208C199.2 256 192 263.2 192 272V304zM336 256C327.2 256 320 263.2 320 272V304C320 312.8 327.2 320 336 320H368C376.8 320 384 312.8 384 304V272C384 263.2 376.8 256 368 256H336zM64 432C64 440.8 71.16 448 80 448H112C120.8 448 128 440.8 128 432V400C128 391.2 120.8 384 112 384H80C71.16 384 64 391.2 64 400V432zM208 384C199.2 384 192 391.2 192 400V432C192 440.8 199.2 448 208 448H240C248.8 448 256 440.8 256 432V400C256 391.2 248.8 384 240 384H208zM320 432C320 440.8 327.2 448 336 448H368C376.8 448 384 440.8 384 432V400C384 391.2 376.8 384 368 384H336C327.2 384 320 391.2 320 400V432z"
+                  class=""></path>
+              </svg>
+              <span class="iconTxt">Event Calendar</span>
+            </a>
+          </div> -->
+          <!-- <div class="tt-obj tt-obj-languages">
+            <div class="tt-skinSelect-02 tt-select__popup-right tt-obj__select">
+              <div class="SumoSelect" tabindex="0" role="button" aria-expanded="false"><select
+                  class="tt-select SumoUnder"
+                  onchange="this.options[this.selectedIndex].value &amp;&amp; (window.location = this.options[this.selectedIndex].value + '&amp;url=' + window.location.href);"
+                  tabindex="-1">
+                  <option value="/home/ChangeLanguage?lang=tr">TR</option>
+                  <option value="/home/ChangeLanguage?lang=en" selected="selected">EN</option>
+                  <option value="/home/ChangeLanguage?lang=ru">RU</option>
+
+                </select>
+                <p class="CaptionCont SelectBox" title=" EN"><span> EN</span><label><i></i></label></p>
+                <div class="optWrapper">
+                  <ul class="options">
+                    <li class="opt"><label>TR</label></li>
+                    <li class="opt selected"><label>EN</label></li>
+                    <li class="opt"><label>RU</label></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="row" style="margin-right: -42px !important; margin-left: -5px !important">
+            <div class="col-3">
+              <!-- Button -->
+              <!-- <div class="SumoSelect open" tabindex="0" role="button" aria-expanded="true">
+                <select class="tt-select SumoUnder" onchange="changeLanguage()" tabindex="-1">
+                  <option value="/home/ChangeLanguage?lang=tr">TR</option>
+                  <option value="/home/ChangeLanguage?lang=en" selected="selected">EN</option>
+                  <option value="/home/ChangeLanguage?lang=ru">RU</option>
+
+                </select>
+                <p class="CaptionCont SelectBox" title=" EN"><span> EN</span><label><i></i></label></p>
+                <div class="optWrapper">
+                  <ul class="options">
+                    <li class="opt"><label>TR</label></li>
+                    <li class="opt selected"><label>EN</label></li>
+                    <li class="opt"><label>RU</label></li>
+                  </ul>
+                </div>
+              </div> -->
+
+              <!-- 
+              <button mat-icon-button id="btnActiveLanguage" [matMenuTriggerFor]="languages">
+                <ng-container *ngTemplateOutlet="
+                    flagImage;
+                    context: { $implicit: activeLang }
+                "></ng-container>
+              </button>
+               <mat-menu [xPosition]="'before'" #languages="matMenu">
+                <ng-container *ngFor="let lang of availableLangs">
+                  <button mat-menu-item (click)="setActiveLang(lang.id)">
+                    <span class="flex items-center">
+                      <ng-container *ngTemplateOutlet="
+                                flagImage;
+                                context: { $implicit: lang.id }
+                            "></ng-container>
+                      <span class="ml-3">{{ lang.label }}</span>
+                    </span>
+                  </button>
+                </ng-container>
+              </mat-menu> -->
+            </div>
+            <!-- <div class="col-2">
+               <ng-template let-lang #flagImage>
+                <span class="relative w-6 shadow rounded-sm overflow-hidden">
+                  <span class="absolute inset-0 ring-1 ring-inset ring-black ring-opacity-10"></span>
+                  {{lang}}
+                </span>
+              </ng-template>
+            </div> -->
+          </div>
+
+          <div class="tt-obj tt-obj-basket mr-4">
+            <div class="buttons" *ngIf="basketItems.length > 0">
+              <button mat-icon-button class="toggle-menu-button" (click)="navigateToBasket()" id="custom-basket-icon"
+                [matBadge]="basketItems.length">
+                <mat-icon id="icon">shopping_basket</mat-icon>
+              </button>
+            </div>
+          </div>
+          <!-- <div class="tt-obj tt-obj-toggle">
+            <a class="tt-menu-toggle icon-menu icon-menu-toggle"></a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

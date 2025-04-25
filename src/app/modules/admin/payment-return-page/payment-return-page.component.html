@@ -1,0 +1,71 @@
+<div class="main" id="tt-pageContent">
+  <div class="subpages-inner section-marker indexPageMaker custom-slider">
+    <div class="options">
+      <div class="container return-card-custom">
+        <div class="card return-container">
+          <div class="return-title">
+            <!-- <div class="return-icon-error"
+              [style]="(!returnSuccess ? 'background-color: #f44336' : 'background-color: green' )">
+              <i class="fa {{returnSuccess ? 'fa-check
+            ' : 'fa-times'}} icon-error fa-2xl"></i>
+             </div> -->
+            <div id="result-icon" class="return-icon-error"
+              [style.background-color]="returnSuccess ? 'green' : '#f44336'">
+              <!-- <mat-icon class="icon-error fa-2xl">{{ returnSuccess ? 'check_circle' : 'close' }}</mat-icon> -->
+              <mat-icon aria-hidden="false"
+                style="    width: 100px; height: 100px; font-size: 60px; padding: 19px 0px 0px 0px;"
+                fontIcon="{{ returnSuccess ? 'check_circle' : 'close' }}"></mat-icon>
+
+            </div>
+            <div class="statusTitle " *ngIf="!banktransfercheck">{{!returnSuccess ? ('creditcarderror'|transloco):
+              (selectedECollections?.recId) + ' ' + ('numberedreservationhasbeenconfirmed'|transloco)
+              }}
+            </div>
+            <div class="statusTitle " *ngIf="banktransfercheck">{{
+              (banktransfer?.voucher) + ' ' + ('numberedreservationisinthepreapprovalstage'|transloco)}}
+            </div>
+            <div class="error-content" *ngIf="!banktransfercheck">
+              <p *ngIf="selectedECollections?.paymentType !== 3">{{!returnSuccess ?
+                ('yourpaymenthasnotbeenmade'|transloco):
+                ('yourpaymenthasbeenreceived'|transloco)}}
+              </p>
+              <p *ngIf="selectedECollections?.paymentType === 3">{{ 'yourpaymentwillbeongate'|transloco }}
+              </p>
+              <div class="static-messeage">
+                <h3 class="custom-h3" *ngIf="selectedECollections.paid">{{!returnSuccess ?
+                  ('yourcreditcardhasbeendeclined'|transloco): ('yourcreditcardhasbeencharged'|transloco)}} </h3>
+                <p class="custom-p" *ngIf="!returnSuccess">{{('transactionfaileddescriptiontext'|transloco)}}</p>
+              </div>
+              <div class="bank-messeage">
+
+              </div>
+              <button mat-raised-button color="primary" (click)="return()" class="w-auto d-flex custom-pay-button">
+                {{('back'|transloco)}}
+              </button>
+
+            </div>
+            <div class="error-content" *ngIf="banktransfercheck">
+              <p>{{('thebanktransferdetailshavebeensentviaemail'|transloco)}}</p>
+              <div class="static-messeage">
+                <h3 class="custom-h3">{{('yourreservationisinthepreapprovalstage'|transloco)}}</h3>
+                <p class="custom-p">
+                  {{('dontforgettoincludeyourreservationnumberinthebanktransferdescription'|transloco)}}</p>
+              </div>
+              <div class="bank-messeage">
+
+              </div>
+              <button mat-raised-button color="primary" (click)="return()" class="w-auto d-flex custom-pay-button">
+                {{('back'|transloco)}}
+              </button>
+            </div>
+            <!-- <div class="row d-flex align-items-start">
+            <button mat-raised-button color="primary" (click)="return()" class="w-auto d-flex custom-pay-button">
+              Geri
+            </button>
+          </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

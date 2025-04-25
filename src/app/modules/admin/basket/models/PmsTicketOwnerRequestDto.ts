@@ -1,0 +1,41 @@
+import { PmsTicketCustomerDetailDto } from "./PmsTicketCustomerDetailDto";
+
+export class PmsTicketOwnerRequestDto {
+    recId?: string;
+    produceId?: string;
+    programId?: string;
+    produceName?: string;
+    zoneName?: string;
+    adultCount?: number;
+    childCount?: number;
+    remark?: string;
+    resType?: number;
+    reservationId?: string | null;
+    propertyId?: string | null;
+    ticketDate?: string | null;
+    paymentPropertyId?: string | null;
+    currencyId?: string | null;
+    currencyCode?: string;
+    ticketAmount?: number;
+    extraAmount?: number;
+    totalAmount?: number;
+    paymentLink?: string;
+    collectionEmail?: string;
+    collectionrecId?: string | null;
+    hasPaymentlink?: boolean | null;
+    roomName?: string;
+    resStatus?: number;
+    discountRatio?: number;
+    defaultRemark?: string | null;
+    activityChannel?: string | null;
+    saleUser?: string | null;
+    amount?: number | null;
+    netAmount?: number | null;
+    curr?: number | null;
+    localAmount?: number | null;
+    activityChannelName?: string;
+    collectionPaid?: boolean;
+    discountAmount?: number;
+    ticketCustomerDetails: PmsTicketCustomerDetailDto[] = [];
+    ismalecontrol?:boolean;
+}

@@ -1,0 +1,188 @@
+.modal-content {
+
+    width: 100% !important;
+    padding: 12px 50px 22px 32px;
+}
+
+.modal-dialog {
+    background-color: #252427 !important;
+    color: white !important;
+}
+
+.basket-image-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.session-modal {
+    min-width: 667px;
+}
+
+.custom-btn {
+    background-color: #09407c;
+    /* Change to desired background color */
+    color: #fff;
+    /* Text color */
+    border: none;
+    /* Remove border */
+}
+
+.custom-btn:hover {
+    background-color: #0a3462;
+    /* Change to desired background color on hover */
+}
+
+.mr-left-1 {
+    margin-left: 1em;
+}
+
+.total-text {
+    font-size: 1.5em;
+    /* Adjust the font size as needed */
+    text-align: right;
+    /* Align the text to the right */
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+.activity-detail-features {
+    display: flex;
+    flex-direction: row;
+}
+
+.activity-detail-quantity {
+    align-items: center;
+    display: flex;
+    width: 60%;
+}
+
+.activity-detail-select {
+    margin-left: 1em;
+}
+
+.modal-title-activity {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 10px 10px 0px;
+}
+
+.activity-detail-title {
+    font-size: 20px;
+}
+
+.modal-footer {
+    justify-content: flex-end;
+}
+
+.custom-exstra {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.span {
+    font-size: 20px;
+}
+
+.square-border {
+    border: 2px solid #ffffff;
+    /* Change color and width as needed */
+    border-radius: 4px;
+    /* Adjust border radius if necessary */
+}
+
+/* Optional: Adjust padding and margin for better spacing */
+.square-border .mat-icon-button {
+    padding: 8px;
+    /* Adjust padding as needed */
+    margin: 0;
+    /* Adjust margin as needed */
+}
+
+.minus-btn,
+.plus-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.minus-btn {
+    left: 8px;
+    /* Adjust the distance from the left */
+}
+
+.plus-btn {
+    right: 8px;
+    /* Adjust the distance from the right */
+}
+
+#extraservice-increment ::ng-deep .mat-form-field-infix .mat-form-field-prefix {
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: #212121;
+    /* Dark background color */
+    border: 1px solid #424242;
+    /* Dark border color */
+    margin-bottom: 20px;
+}
+
+.custom-table th,
+.custom-table td {
+    padding: 8px;
+    text-align: left;
+    color: #fff;
+    /* White text color */
+}
+
+.custom-table th {
+    background-color: #424242;
+    /* Dark header background color */
+    border-bottom: 1px solid #616161;
+    /* Dark header border color */
+}
+
+.custom-table td {
+    border-bottom: 1px solid #424242;
+    /* Dark border color */
+}
+
+.custom-table tbody tr:hover {
+    background-color: #333;
+    /* Dark hover background color */
+}
+
+.delete-btn {
+    color: #ff5252;
+    /* Red delete button color */
+}
+
+.delete-btn:hover {
+    background-color: #ff8a80;
+    /* Red hover background color */
+}

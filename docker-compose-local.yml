@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  veboniticketsale:
+    container_name: veboniticketsale
+    environment:
+      NODE_ENV: development
+    restart: always
+    ports:
+      - 4503:80

@@ -1,0 +1,207 @@
+<div id="tt-pageContent">
+  <div class="subpages-inner section-marker">
+    <div class="container-fluid-subpages">
+
+      <div class="row shortEventBox">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="tickets-wide">
+            <div class="tickets-wide__item">
+              <div class="tickets-wide__img"><img
+                  src="https://panel.cosmosticket.net//upload/activity/20231225145337262.jpg" alt=""></div>
+              <div class="tickets-wide__description">
+                <div class="tt-col">
+                  <div class="tickets-wide__label">
+                    <span>14</span>
+                    Jan
+                  </div>
+                </div>
+                <div class="tt-col">
+                  <div class="tickets-wide__data">Sunday, Jan 14, 2024 12:00</div>
+                  <div class="tickets-wide__title">Küçük Prens</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-30 ticketSelectionRow">
+        <div class="col-12 col-md-12 col-lg-8 col-xl-9">
+          <div class="ticketSelectionContent whiteContent">
+            <a href="#" data-toggle="modal" data-target="#modalSalon">
+              <h4 class="title">CLICK HERE FOR SEATING PLAN</h4>
+            </a>
+
+            <div class="ticketSelectionWrap1">
+              <div class="select-wrapper zoneSelect">
+                <div class="select">
+                  <div class="select__trigger">
+                    <div class="sutTitle">SITE SELECTION</div>
+                    <span>SELECT ZONE</span>
+                    <div class="arrow"></div>
+                  </div>
+                  <div class="custom-options">
+                    <span class="custom-option selected" data-value="tesla">SELECT ZONE</span>
+                    <span class="custom-option priceOption" data-bokk="" data-desc="<div>
+    Child:</div>
+  <div>
+    The Little Prince Immersive Digital Experience + Popcorn &amp;amp; Soft Drink: 400 TL</div>
+  <div>
+    &amp;nbsp;</div>
+  <div>
+    Adult:</div>
+  <div>
+    The Little Prince Immersive Digital Experience + Popcorn &amp;amp; Soft Drink: 500 TL</div>
+  " data-isloca="False" data-locacount="0" data-locamaxcount="0" data-menuname="Entrance" data-value="162"
+                      data-price="500" data-price2="400">ENTRANCE</span>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="koltukbutonlar">
+
+                <div class="barGroup">
+                  <div id="adultAmount" class="adultLbl quantityLbl ticketSelectButtons">
+                    <label id="priceType">TICKET</label> <span id="adultTicketPrice">0</span> TL
+                  </div>
+
+                  <div class="quantityBar adultQuantity ticketSelectButtons">
+                    <div class="quantityBtn minusBtn adultMinusBtn">-</div>
+                    <!--<div class="quantityBtn plusBtn"><span class="deleteBtn"></span></div>-->
+                    <div class="middle">
+                      <span id="adultCount">1</span> Person
+                    </div>
+                    <!--<div class="quantityBtn plusBtn"><span class="deleteBtn"></span></div>-->
+                    <div class="quantityBtn plusBtn adultPlusBtn">+</div>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <script>
+                document.querySelector('.select-wrapper').addEventListener('click', function () {
+                  this.querySelector('.select').classList.toggle('open');
+                })
+
+                for (const option of document.querySelectorAll(".custom-option")) {
+                  option.addEventListener('click', function () {
+                    if (!this.classList.contains('selected')) {
+
+                      this.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
+                      this.classList.add('selected');
+                      this.closest('.select').querySelector('.select__trigger span').textContent = this.textContent;
+                    }
+                  })
+                }
+              </script>
+            </div>
+
+            <div class="mt-30">
+              <div id="menuName" class="title2 menuName">Please select from the list to see zone details.</div>
+              <div id="menuDesc" class="title3Reg menuDesc"></div>
+            </div>
+
+
+
+          </div>
+        </div>
+        <div class="col-12  col-md-12 col-lg-4 col-xl-3">
+          <div class="basketBox">
+
+            <div class="basketBoxMiddle">
+              <div class="basketItems">
+                <div class="basketItem">
+                  <span id="priceType2">TICKET</span>
+                  <div><label class="adultCount">1</label> Person</div>
+                  <span class="price"><label class="adultPrice">0</label> ₺</span>
+                </div>
+
+
+              </div>
+              <div class="catInfo">
+                <div class="catName menuName">-</div>
+                <div class="catDesc menuDesc">-</div>
+              </div>
+              <div class="basketTotalRow title2 mt-20">
+                <div class="totalLbl">TOTAL AMOUNT</div>
+                <div class="totalAmount"><span>0</span>₺</div>
+              </div>
+            </div>
+            <ul>
+              <li>The ticket is not yet reserved for you, you can change your selection.</li>
+              <li>For the payment in installments, the maturity difference depending on the banks can be applied.</li>
+              <li>By making transactions on this site, you are deemed to have read and accepted the Terms of Use.</li>
+            </ul>
+
+            <div class="text-center mt-10">
+              <form id="koltuksatisform" action="/payment/zoneTickets" method="post">
+
+                <input type="hidden" id="bigManCount" name="bigManCount" value="1" data-price="0">
+                <input type="hidden" id="childCount" name="childCount" value="0" data-price="0">
+
+                <input type="hidden" id="price1" name="price1" value="0" data-price="0">
+                <input type="hidden" id="price2" name="price2" value="0" data-price="0">
+
+
+                <input type="hidden" id="isLoca" value="0">
+                <input type="hidden" id="locaCount" value="0">
+                <input type="hidden" id="locaMaxCount" value="0">
+                <input type="hidden" id="maxCount" value="10">
+                <input type="hidden" id="ticketCountError" value="You have reached the maximum ticket selection limit!">
+
+                <input type="hidden" id="extraAdult" value="0">
+                <input type="hidden" id="extraChild" value="0">
+
+                <input type="hidden" name="totalChildAmount" id="totalChildAmount" value="0">
+                <input type="hidden" name="totalAdultAmount" id="totalAdultAmount" value="0">
+
+                <input type="hidden" id="blokId" name="blokId" value="">
+                <input type="hidden" id="saloonID" value="81" name="saloonID">
+                <input type="hidden" id="x" value="41"> <!-- salon gideceği x koordinatı -->
+                <input type="hidden" id="y" value="27"> <!-- salon gideceği y kordinatı-->
+                <input type="hidden" id="kapasite" value="1000">
+                <input type="hidden" id="userID" name="userID" value="3097">
+                <input type="hidden" id="isBoxOffice" value="false">
+                <input type="hidden" id="loca" value="0" name="loca">
+
+
+                <input type="hidden" id="seanceID" name="seanceID" value="617">
+                <input type="hidden" id="activityseat" name="activityseat" value="">
+                <input type="hidden" id="satilmis" name="satilmis" value="0">
+                <input type="hidden" id="islemde" name="islemde" value="0">
+                <div class="cosmos-btn"><button type="submit" class="cosmos-btn-details" tabindex="0"><span>Proceed to Payment</span></button></div>
+
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-12  col-md-12 col-lg-12">
+
+        </div>
+        <div class="clearFix"></div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+
+
+  <input type="hidden" id="blockNotSelected" value="Please select a zone!">
+  <input type="hidden" id="ticketNotSelected" value="Please select the number of tickets!">
+
+
+  <script src="/Files/salon/js/zoneSelect.js?v=06012024103415"></script>
+  <script>
+    salon.ticketSelectProcess();
+    salon.timerStart();
+  </script>
+
+
+
+
+</div>

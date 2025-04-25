@@ -1,0 +1,83 @@
+# Deploy to Azure Kubernetes Service
+# Build and push image to Azure Container Registry; Deploy to Azure Kubernetes Service
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+  - master
+
+resources:
+  - repo: self
+
+variables:
+
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '042dfffe-b227-4c82-9515-9a3bbe070a2b'
+  imageRepository: 'veboniticketsale'
+  containerRegistry: 'veboniacr.azurecr.io'
+  dockerfilePath: 'Dockerfile'
+  tag: '$(Build.BuildId)'
+  imagePullSecret: 'veboniacraac1-auth'
+  namespace: 'beta' # Namespace tanımlandı
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+  - stage: Build
+    displayName: Build stage
+    jobs:
+      - job: Build
+        displayName: Build
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: Docker@2
+            displayName: Build and push an image to container registry
+            inputs:
+              command: buildAndPush
+              repository: $(imageRepository)
+              dockerfile: $(dockerfilePath)
+              containerRegistry: $(dockerRegistryServiceConnection)
+              buildContext: $(Build.SourcesDirectory)
+              tags: |
+                $(tag)
+
+          - upload: aks
+            artifact: aks
+
+  - stage: Deploy
+    displayName: Deploy stage
+    dependsOn: Build
+
+    jobs:
+      - deployment: Deploy
+        condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
+        displayName: Deploy
+        pool:
+          vmImage: $(vmImageName)
+        environment: 'VeboniTicketSale'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: KubernetesManifest@0
+                  displayName: Create imagePullSecret
+                  inputs:
+                    action: createSecret
+                    kubernetesServiceConnection: 'HuaweiKubernetes'
+                    namespace: $(namespace) # Namespace eklendi
+                    secretName: $(imagePullSecret)
+                    dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
+
+                - task: KubernetesManifest@0
+                  displayName: Deploy to Kubernetes cluster
+                  inputs:
+                    action: deploy
+                    kubernetesServiceConnection: 'HuaweiKubernetes'
+                    namespace: $(namespace) # Namespace eklendi
+                    manifests: |
+                      $(Pipeline.Workspace)/aks/main/veboniticketsale.yaml
+                    imagePullSecrets: |
+                      $(imagePullSecret)
+                    containers: |
+                      $(containerRegistry)/$(imageRepository):$(tag)

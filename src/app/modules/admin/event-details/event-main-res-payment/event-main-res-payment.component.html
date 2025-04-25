@@ -1,0 +1,95 @@
+<div class="eventDetail mainEventDetail" style=" flex-wrap: wrap;">
+  <div class="col mainEventDetailHead">
+    <div class="eventImg" style="    text-align: left !important;
+    width: fit-content;    float: left;">
+      <img
+        [src]="image ?? 'https://veboni.blob.core.windows.net/5fbfb39a-7fd3-47ff-80cc-bdd3bceb7718/pms/jpeg/73105482-6884-4eff-9bec-728de2f73b4a.jpeg'"
+        alt="Cosmos Theatre" style="    min-width: 25vw;">
+
+    </div>
+    <div class="eventLeft" style="display:flex; flex-direction: column; margin-right: 4em; margin-left:1em;">
+      <div class="blocktitle">
+        <div class="tt-caption">{{companyFactSheetDef?.name}} - {{selectedProductData?.programNameDisplay}}</div>
+        <h1 class="tt-title2">{{selectedProductData?.programNameDisplay}}</h1>
+      </div>
+
+      <h3 class="subTitle">{{'programdetails'|transloco}}:</h3>
+      <div class="main" [innerHtml]="html"></div>
+
+    </div>
+  </div>
+
+  <div class="row" style="    margin-left: 2em;     width: -webkit-fill-available;  margin-right: 2em;">
+    <div class="seansListWrap" style="    width: 100%;">
+      <div class="seansListInner" style="width: 100%;">
+        <div class="sessionLbl">
+          <div>
+            {{'eventdate'|transloco}}: {{selectedProductData && selectedProductData.sessions &&
+            selectedProductData.sessions[0]?.displayDate
+            ?? ''}}
+          </div>
+        </div>
+        <div class="seansSelectionCompsContainer" *ngIf="!saleClosed">
+          <mat-form-field class="seansGenericDropdown">
+            <mat-label>{{'selectseance'| transloco}}</mat-label>
+            <mat-select [(ngModel)]="selectedSeance" (ngModelChange)="selectSeance()">
+              <mat-option *ngFor="let option of seancesFiltered" [value]="option.seanceBegin">{{
+                option.seanceBeginDisplay }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="seansGenericDropdown">
+            <mat-label>{{'selectcategory'| transloco}}</mat-label>
+            <mat-select [(ngModel)]="selectedCategory" (ngModelChange)="selectCategory()"
+              [disabled]="categoriesFiltered.length===0">
+              <mat-option *ngFor="let option of categoriesFiltered" [value]="option.programDetailId">{{
+                option.detailRemarkDisplay }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="number-input-wrapper">
+            <button class="plusminus" (click)="decrementValue( 'adult')">-</button>
+            <div class="full-countnumber">
+              <label class="countlabel" for='adult'>{{'adult'| transloco}}</label>
+              <input name="adult" class="countnumber" type="number" onkeypress="return event.charCode >= 48" min="1"
+                step="1" [(ngModel)]="adultCount" (ngModelChange)="onChildCountChange($event, 'adult')">
+            </div>
+            <button class="plusminus" (click)="incrementValue(  'adult')">+</button>
+          </div>
+          <div class="number-input-wrapper" *ngIf="!nonChildCheck">
+            <button class="plusminus" (click)="decrementValue( 'child')">-</button>
+            <div class="full-countnumber">
+              <label class="countlabel" for='child'>{{'child'| transloco}}</label>
+              <input name="child" class="countnumber" type="number" onkeypress="return event.charCode >= 48" min="0"
+                step="1" [(ngModel)]="childCount" (ngModelChange)="onChildCountChange($event, 'child')">
+            </div>
+            <button class="plusminus" (click)="incrementValue(  'child')">+</button>
+          </div>
+        </div>
+
+        <div class="row" style="    justify-content: flex-end;        ">
+          <div class="d-flex justify-content-end price" style="    margin-right: 2em; margin-top: auto;"
+            *ngIf="!saleClosed ">
+            <h5 class="total-text" style="font-weight: 100;font-size: 27px;font-style: oblique;">{{'total'| transloco}}:
+              <span class="price text-success" style="font-weight: 400;font-style: normal;">{{totalPrice |
+                currency:'':'':'1.2-2'}}
+                ₺</span>
+              <span class="currency-symbol" *ngIf="currPrice">( {{currPrice | currency:'':'':'1.2-2'}}
+                {{currSymbol}})</span>
+
+            </h5>
+          </div>
+          <div class="flex-end-side" style="margin-right: 3em" *ngIf="!saleClosed || petitRoute || routePage">
+            <!-- <button type="button" (click)="continue()" class="tt-btn-default"><span>Continue</span></button> -->
+            <div class="cosmos-btn">
+              <button id="addBasketDetailButton" type="button" (click)="addBasket()"
+                class="cosmos-btn-details addBasketDetailButton"><span>{{(petitRoute ? 'petitroutebutton': 'addbasket')|
+                  transloco}}</span></button>
+            </div>
+            <!-- <button type="button" onclick="biletAl()" class="tt-btn-default"><span>Buy a ticket</span></button>
+            <button id="addBasketDetailButton" type="button" (click)="addBasket()"
+            class="tt-btn-default addBasketDetailButton"><span>Add to Basket</span></button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

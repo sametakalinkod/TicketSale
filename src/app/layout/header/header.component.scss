@@ -1,0 +1,333 @@
+// .background-video {
+//     height: 100vh !important;
+//     left: 0;
+//     object-fit: cover;
+//     top: 0;
+//     width: 100%;
+// }
+
+// .main-video {
+//     position: relative;
+// }
+
+// .common-video {
+//     width: 100%;
+//     display: inline-block;
+// }
+
+
+// .slick-slide {
+//     outline: none;
+//     width: 1116px;
+//     display: block;
+//     float: left;
+//     height: 100%;
+//     min-height: 1px;
+// }
+
+
+// /* Style the video: 100% width and height to cover the entire window */
+// #myVideo {
+//     position: fixed;
+//     right: 0;
+//     bottom: 0;
+//     min-width: 100%;
+//     min-height: 100%;
+//     height: 100vh !important;
+//     /* left: 0; */
+//     -o-object-fit: cover;
+//     object-fit: cover;
+//     top: 0;
+//     width: 100%;
+//     position: static;
+// }
+
+// /* Add some content at the bottom of the video/page */
+// .content {
+//     position: fixed;
+//     right: 0;
+//     bottom: 0;
+//     min-width: 100%;
+//     min-height: 100%;
+//     height: 100vh !important;
+//     /* left: 0; */
+//     -o-object-fit: cover;
+//     object-fit: cover;
+//     top: 0;
+//     width: 100%;
+// }
+
+// /* Style the button used to pause/play the video */
+// #myBtn {
+//     width: 200px;
+//     font-size: 18px;
+//     padding: 10px;
+//     border: none;
+//     background: #000;
+//     color: #fff;
+//     cursor: pointer;
+// }
+
+// #myBtn:hover {
+//     background: #ddd;
+//     color: black;
+// }
+
+
+// .mute-status {
+//     align-items: center;
+//     background: rgba(0, 0, 0, .3);
+//     border-radius: 100%;
+//     display: flex;
+//     height: 2rem;
+//     justify-content: center;
+//     position: absolute;
+//     right: 1rem;
+//     top: 1.5rem;
+//     width: 2rem;
+//     z-index: 10;
+// }
+
+// .mute-image {
+//     height: 1rem;
+//     width: 1rem;
+// }
+
+
+// .mainvideo {
+//     position: relative;
+//     width: 100%;
+//     display: inline-block;
+//     box-sizing: inherit;
+//     display: flex;
+//     float: left;
+//     height: 100%;
+//     min-height: 1px;
+//     opacity: 1;
+//     transform: translate3d(0px, 0px, 0px);
+//     display: block;
+//     margin: 0;
+//     overflow: hidden;
+//     padding: 0;
+//     position: relative;
+//     transform: translateZ(0);
+// }
+
+
+
+
+
+
+
+// // .container {
+// //     text-size-adjust: 100%;
+// //     text-rendering: optimizeLegibility;
+// //     font-family: "Jost", sans-serif;
+// //     font-size: 1em;
+// //     font-weight: 400;
+// //     line-height: 1.5;
+// //     color: #f5f5f5 !important;
+// //     box-sizing: inherit;
+// //     flex-grow: 1;
+// //     margin: 0 auto;
+// //     position: relative;
+// //     width: auto;
+// //     max-width: 1344px;
+// // }
+
+// // .navbar-wrapper {
+// //     text-size-adjust: 100%;
+// //     text-rendering: optimizeLegibility;
+// //     font-family: "Jost", sans-serif;
+// //     font-size: 1em;
+// //     font-weight: 400;
+// //     line-height: 1.5;
+// //     color: #f5f5f5 !important;
+// //     box-sizing: inherit;
+// //     align-items: center;
+// //     display: flex;
+// //     justify-content: space-between;
+// // }
+
+// .top-bar .left-side {
+//     height: 1.5rem;
+//     min-height: 0 !important;
+//     min-height: auto !important;
+//     width: 40%;
+// }
+
+// .navbar-brand {
+//     align-items: stretch;
+//     display: flex;
+//     flex-shrink: 0;
+//     min-height: 3.25rem;
+// }
+
+
+.SumoSelect {
+    display: inline-block;
+    position: relative;
+    outline: 0;
+}
+
+
+.tt-skinSelect-02 .SumoSelect {
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 17px;
+    letter-spacing: -.01em;
+    font-weight: 700;
+    width: 38px;
+    font-family: Poppins, sans-serif;
+    position: relative;
+    top: -1px;
+}
+
+.SelectClass,
+.SumoUnder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+}
+
+.tt-select {
+    opacity: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+
+.tt-skinSelect-02 .SumoSelect>.CaptionCont {
+    padding: 8px 12px 8px 2px;
+    background: 0 0;
+    display: inline-flex;
+    outline: 0;
+    border: none;
+}
+
+.tt-skinSelect-02 .SumoSelect:focus>.CaptionCont,
+.tt-skinSelect-02 .SumoSelect>.CaptionCont {
+    transition: border .2s ease-in-out;
+    box-shadow: none;
+    border: none;
+    outline: 0;
+}
+
+
+.SumoSelect>.optWrapper {
+    display: none;
+    z-index: 1000;
+    top: 30px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, .11);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+
+
+.tt-skinSelect-02 .SumoSelect>.optWrapper {
+    border-radius: 0;
+    border: none;
+}
+
+
+.tt-skinSelect-02 .SumoSelect .optWrapper {
+    top: 100% !important;
+    right: 0;
+    min-width: 90px;
+    background-color: #fff;
+    color: #3d3b42;
+    padding: 7px 0;
+}
+
+
+
+.tt-skinSelect-02.tt-select__popup-right .SumoSelect>.optWrapper {
+    left: auto;
+    right: 0;
+}
+
+
+.SumoSelect>.optWrapper ul {
+    list-style: none;
+    display: block;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+}
+
+.SumoSelect>.optWrapper>.options {
+    border-radius: 2px;
+    position: relative;
+    max-height: 250px;
+}
+
+
+@media (max-width: 1024px) {
+    #tt-header .tt-skinSelect-02 .SumoSelect {
+        font-size: 13px;
+    }
+}
+
+.SumoSelect {
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 17px;
+    letter-spacing: -.01em;
+    font-weight: 700;
+    width: 38px;
+    font-family: Poppins, sans-serif;
+    position: relative;
+    top: -1px;
+}
+
+
+.SumoSelect>.CaptionCont {
+    position: relative;
+    border: 1px solid #a4a4a4;
+    min-height: 14px;
+    background-color: #fff;
+    border-radius: 2px;
+    margin: 0;
+}
+
+.SumoSelect:focus>.CaptionCont,
+.tt-skinSelect-02 .SumoSelect>.CaptionCont {
+    transition: border .2s ease-in-out;
+    box-shadow: none;
+    border: none;
+    outline: 0;
+}
+
+.tt-skinSelect-02 .SumoSelect:hover>.CaptionCont>label:after {
+    color: #ff1a43;
+}
+
+.tt-skinSelect-02 .SumoSelect:hover>.CaptionCont>span {
+    color: #ff1a43;
+}

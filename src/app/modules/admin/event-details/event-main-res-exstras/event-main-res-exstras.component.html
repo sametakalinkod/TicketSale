@@ -1,0 +1,36 @@
+<div class="eventDetail mainEventDetailExtras extra-services" *ngFor="let item of exstraServices">
+  <div class="extra-Image col-xs-12">
+    <div class="extraImg-container">
+      <img
+        [src]="item.imageList && item.imageList.length > 0 ? item.imageList[0] : 'https://veboni.blob.core.windows.net/5fbfb39a-7fd3-47ff-80cc-bdd3bceb7718/pms/jpeg/73105482-6884-4eff-9bec-728de2f73b4a.jpeg'"
+        alt="Cosmos Theatre">
+    </div>
+    <div class="seansListWrap">
+      <div class="seansListInner">
+      </div>
+    </div>
+  </div>
+  <div class="eventLeft extra-content  col-xs-12">
+    <div class="blocktitle">
+      <!-- <div class="tt-caption">Cosmos Theatre - Küçük Prens</div> -->
+      <h1 class="extra-title">{{item.nameDisplay}}</h1>
+    </div>
+
+    <h3 class="subTitle">{{'extradetails'|transloco}}:</h3>
+    <div class="main" [innerHtml]=""></div>
+  </div>
+  <div class="eventRight  col-xs-12" style="justify-content: flex-end;">
+    <div class="price-section">
+      <!-- Add your price content here -->
+      <span class="price">{{ item.price | currency:'':'':'1.2-2'}} {{item.currencyName}}</span>
+    </div>
+  </div>
+  <div class="eventRight  col-xs-12">
+    <div class="price-section">
+      <div class="cosmos-btn">
+      <button id="addBasketDetailButton" type="button" (click)="addBasket(item)"
+        class="cosmos-btn-details addBasketDetailButton"><span>{{'addbasket'| transloco}}</span></button>
+      </div>
+    </div>
+  </div>
+</div>

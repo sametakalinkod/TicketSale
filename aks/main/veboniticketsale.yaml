@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: veboniticketsale-deployment
+  namespace: beta
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: veboniticketsale
+  template:
+    metadata:
+      labels:
+        app: veboniticketsale
+    spec:
+      containers:
+      - name: veboniticketsale
+        image: veboniacr.azurecr.io/veboniticketsale
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "20Mi"
+            cpu: "1m"
+        ports:
+        - containerPort: 80
+        env:
+            - name: NODE_ENV
+              value: development
+            - name: apiUrl
+              value: http://betaapi.veboni.com/services/
+            - name: hubUrl
+              value: http://hubbeta.veboni.com/serverHub
+      imagePullSecrets:
+      - name: veboniacr
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: veboniticketsale-service-beta
+  namespace: beta
+spec:
+  selector:
+    app: veboniticketsale
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+    - name: https
+      protocol: TCP
+      port: 443
